@@ -58,7 +58,7 @@ export default function Footer() {
                     </a>
                   </li>
                    <li>
-                    <a href="#galeria" className="hover:text-primary transition">
+                    <a href="#galeria-section" className="hover:text-primary transition">
                       Galeria
                     </a>
                   </li>

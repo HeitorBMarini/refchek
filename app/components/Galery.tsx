@@ -47,7 +47,7 @@ export default function GallerySection() {
   const hasTwoCentered = remainder === 2;
 
   return (
-    <section id="galeria" className="relative py-20 scroll-mt-28">
+    <section id="galeria-section" className="relative py-20 scroll-mt-28">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-10">
           <motion.p

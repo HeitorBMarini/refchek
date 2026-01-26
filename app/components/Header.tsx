@@ -45,7 +45,7 @@ export default function Header() {
               <a href="#como-funciona" className="hover:text-primary transition">
                 Como funciona e Benefícios
               </a>
-              <a href="#galeria" className="hover:text-primary transition">
+              <a href="#galeria-section" className="hover:text-primary transition">
                 Galeria
               </a>
             </nav>
