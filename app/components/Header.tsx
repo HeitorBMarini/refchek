@@ -130,7 +130,7 @@ export default function Header() {
             </button>
 
             <button
-              onClick={() => scrollToId("#galeria")}
+              onClick={() => scrollToId("#galeria-section")}
               className=" hover:opacity-90 transition"
             >
               Galeria
