@@ -216,7 +216,7 @@ export default function ComoFuncionaSection() {
                 ))}
               </div>
 
-              <div className="mt-6 rounded-xl border border-white/10 bg-black/20 p-4 text-white/90 w-90">
+              <div className="mt-6 rounded-xl border border-white/10 bg-black/20 p-4 text-white/90 md:w-90 w-full md:text-start text-center">
                 <p className="font-semibold">O RefCheck não ensina apenas regras.</p>
                 <p className="text-white/80">Ele treina decisões.</p>
               </div>
