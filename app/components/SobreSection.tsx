@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
@@ -46,84 +47,147 @@ function Bullet({ text }: { text: string }) {
   );
 }
 
+function ImgCard({
+  src,
+  alt,
+  className = "",
+  priority,
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+  priority?: boolean;
+}) {
+  return (
+    <div
+      className={[
+        "group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5",
+        className,
+      ].join(" ")}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        priority={priority}
+        className="object-cover transition duration-300 group-hover:scale-[1.03]"
+        sizes="(max-width: 1024px) 100vw, 50vw"
+      />
+      <span className="absolute inset-0 bg-black/20 group-hover:bg-black/35 transition" />
+    </div>
+  );
+}
+
 export default function SobreSection() {
   return (
-    <section id="sobre" className="relative overflow-hidden py-20">
+    <section id="sobre" className="relative overflow-hidden py-20 scroll-mt-28">
       {/* Glow decorativo */}
       <div className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-primary/20 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 right-10 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-6">
-        {/* Cabeçalho */}
+        {/* Cabeçalho + Imagens (lado a lado no desktop) */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.35 }}
           variants={stagger}
-          className="max-w-3xl"
+          className="grid gap-10 lg:grid-cols-12 items-start"
         >
-          <motion.p
-            variants={fadeUp}
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-white/80"
-          >
-            <span className="h-2 w-2 rounded-full bg-primary" />
-            Sobre o RefCheck
-          </motion.p>
+          {/* Texto */}
+          <div className="lg:col-span-7">
+            <motion.p
+              variants={fadeUp}
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-white/80"
+            >
+              <span className="h-2 w-2 rounded-full bg-primary" />
+              Sobre o RefCheck
+            </motion.p>
 
-          <motion.h2
-            variants={fadeUp}
-            className="mt-5 text-3xl md:text-5xl font-bold text-white leading-tight"
-          >
-            Treine decisões sob pressão real de jogo com{" "}
-            <span className="text-primary">Realidade Virtual</span>.
-          </motion.h2>
+            <motion.h2
+              variants={fadeUp}
+              className="mt-5 text-3xl md:text-5xl font-bold text-white leading-tight"
+            >
+              Treine decisões sob pressão real de jogo com{" "}
+              <span className="text-primary">Realidade Virtual</span>.
+            </motion.h2>
 
-          <motion.p
-            variants={fadeUp}
-            className="mt-5 text-base md:text-lg text-white/80 leading-relaxed"
-          >
-            RefCheck é um sistema de treinamento em Realidade Virtual que prepara
-            árbitros de futebol para tomar decisões corretas sob pressão real de jogo.
-          </motion.p>
+            <motion.p
+              variants={fadeUp}
+              className="mt-5 text-base md:text-lg text-white/80 leading-relaxed"
+            >
+              RefCheck é um sistema de treinamento em Realidade Virtual que prepara
+              árbitros de futebol para tomar decisões corretas sob pressão real de jogo.
+            </motion.p>
 
-          {/* Chips / destaques */}
-          <motion.div
-            variants={fadeUp}
-            className="mt-6 flex flex-wrap gap-3"
-          >
-            {[
-              "Treinamento imersivo",
-              "Situações reais de partida",
-              "Foco total em tomada de decisão",
-            ].map((item) => (
-              <span
-                key={item}
-                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/85"
+            {/* Chips / destaques */}
+            <motion.div variants={fadeUp} className="mt-6 flex flex-wrap gap-3">
+              {[
+                "Treinamento imersivo",
+                "Situações reais de partida",
+                "Foco total em tomada de decisão",
+              ].map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/85"
+                >
+                  {item}
+                </span>
+              ))}
+            </motion.div>
+
+            {/* CTAs */}
+            <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="mailto:contato@seudominio.com"
+                className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-semibold text-white hover:opacity-90 transition"
               >
-                {item}
-              </span>
-            ))}
-          </motion.div>
+                Solicitar demonstração
+              </a>
 
-          {/* CTAs */}
-          <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="mailto:contato@seudominio.com"
-              className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-semibold text-white hover:opacity-90 transition"
-            >
-              Solicitar demonstração
-            </a>
+            </motion.div>
+          </div>
 
-            <a
-              href="#projeto"
-              className="inline-flex items-center justify-center rounded-md border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition"
+          {/* Mosaico de imagens */}
+          <motion.div variants={stagger} className="lg:col-span-5">
+            <div className="grid grid-cols-2 gap-4">
+              <motion.div variants={fadeUp} custom={0} className="relative">
+                <ImgCard
+                  src="/imagens/galeria/galeria-1.png"
+                  alt="RefCheck - treinamento imersivo"
+                  className="aspect-4/5"
+                  priority
+                />
+              </motion.div>
+
+              <motion.div variants={fadeUp} custom={1} className="relative">
+                <ImgCard
+                  src="/imagens/galeria/galeria-2.png"
+                  alt="RefCheck - situações reais de jogo"
+                  className="aspect-4/5"
+                />
+              </motion.div>
+
+              <motion.div variants={fadeUp} custom={2} className="relative col-span-2">
+                <ImgCard
+                  src="/imagens/galeria/galeria-7.png"
+                  alt="RefCheck - tomada de decisão"
+                  className="aspect-16/7"
+                />
+              </motion.div>
+            </div>
+
+            <motion.p
+              variants={fadeUp}
+              custom={3}
+              className="mt-4 text-xs text-white/60 leading-relaxed"
             >
-              Conhecer o projeto
-            </a>
+              Imagens ilustrativas da experiência RefCheck (VR, análise e cenários de jogo).
+            </motion.p>
           </motion.div>
         </motion.div>
 
-        {/* Grid principal */}
+        {/* Grid principal (Problema + Solução) */}
         <motion.div
           initial="hidden"
           whileInView="visible"

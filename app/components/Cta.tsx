@@ -13,7 +13,7 @@ export default function CTAStyled() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="
             relative overflow-hidden
-            rounded-[32px]
+            rounded-3xl
             border border-white/10
             bg-primary
             shadow-2xl
@@ -33,7 +33,7 @@ export default function CTAStyled() {
           {/* brilho suave */}
           <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-black/20 blur-3xl" />
 
-          <div className="relative z-10 grid gap-10 p-10 md:p-14 lg:grid-cols-12 lg:items-center">
+          <div className="relative z-10 grid gap-10 p-7 md:p-12 lg:grid-cols-12 lg:items-center">
             {/* Texto */}
             <div className="lg:col-span-7">
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
@@ -70,50 +70,6 @@ export default function CTAStyled() {
                     <span className="h-2.5 w-2.5 rounded-full bg-white" />
                   </span>
                 </a>
-
-                <a
-                  href="mailto:contato@seudominio.com?subject=Conhecer%20o%20projeto%20-%20RefCheck"
-                  className="
-                    group inline-flex items-center justify-between gap-5
-                    rounded-full bg-black/80 hover:bg-black
-                    px-6 py-3 text-sm md:text-base font-semibold text-white
-                    border border-white/10
-                    min-w-60
-                    transition
-                  "
-                >
-                  Conhecer o projeto
-                  <span
-                    className="
-                      h-9 w-9 rounded-full bg-white/15
-                      grid place-items-center
-                      group-hover:bg-white/20 transition
-                    "
-                  >
-                    <span className="h-2.5 w-2.5 rounded-full bg-white" />
-                  </span>
-                </a>
-              </div>
-            </div>
-
-            {/* Espaço visual (opcional) */}
-            <div className="lg:col-span-5 hidden lg:block">
-              <div className="rounded-2xl  p-6 ">
-                <p className="text-white/90 font-semibold">Entre em contato para:</p>
-                <ul className="mt-4 space-y-3 text-white/85">
-                  <li className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 rounded-full bg-white" />
-                    Conhecer o projeto
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 rounded-full bg-white" />
-                    Solicitar uma demonstração
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 rounded-full bg-white" />
-                    Participar da evolução do RefCheck
-                  </li>
-                </ul>
               </div>
             </div>
           </div>

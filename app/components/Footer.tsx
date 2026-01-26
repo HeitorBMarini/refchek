@@ -53,8 +53,13 @@ export default function Footer() {
                     </a>
                   </li>
                   <li>
-                    <a href="#projeto" className="hover:text-primary transition">
+                    <a href="#como-funciona" className="hover:text-primary transition">
                       Como funciona
+                    </a>
+                  </li>
+                   <li>
+                    <a href="#galeria" className="hover:text-primary transition">
+                      Galeria
                     </a>
                   </li>
                 </ul>

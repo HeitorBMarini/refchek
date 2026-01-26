@@ -3,132 +3,149 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useState } from "react";
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  const scrollToId = useCallback(
-    (id: string) => {
-      setOpen(false);
+ const scrollToId = useCallback((id: string) => {
+  setMobileOpen(false);
 
-      // pequeno delay pra garantir que o dropdown fechou antes de rolar
-      setTimeout(() => {
-        const el = document.querySelector(id);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-        } else {
-          // fallback se não achar (evita travar)
-          window.location.hash = id;
-        }
-      }, 80);
-    },
-    []
-  );
+  setTimeout(() => {
+    const el = document.querySelector(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, 150); 
+}, []);
+
 
   return (
-    <header className="w-full border-b border-white/10 absolute top-0 left-0 z-50">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        {/* Logo */}
-        <Link href="/" className="flex items-center">
+    <>
+      {/* HEADER */}
+      <header className="absolute top-0 left-0 w-full z-50 border-b border-white/10 text-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center justify-between py-4">
+            {/* Logo */}
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/imagens/logo.png"
+                alt="Logo"
+                width={200}
+                height={40}
+                priority
+              />
+            </Link>
+
+            {/* NAV DESKTOP */}
+            <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+              <a href="#sobre" className="hover:text-primary transition">
+                Sobre
+              </a>
+              <a href="#como-funciona" className="hover:text-primary transition">
+                Como funciona e Benefícios
+              </a>
+              <a href="#galeria" className="hover:text-primary transition">
+                Galeria
+              </a>
+            </nav>
+
+            {/* CTA DESKTOP */}
+            <a
+              href="mailto:contato@seudominio.com"
+              className="hidden md:inline-block bg-primary text-white px-4 py-2 rounded-md text-sm hover:opacity-90 transition"
+            >
+              Fale conosco
+            </a>
+
+            {/* BOTÃO MOBILE */}
+            <button
+              type="button"
+              className="md:hidden inline-flex items-center justify-center rounded-full border border-white/40 p-2"
+              onClick={() => setMobileOpen((v) => !v)}
+              aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
+            >
+              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* MENU MOBILE (estilo do exemplo: desce de cima) */}
+      <div
+        className={`
+          fixed inset-x-0 top-0 z-60
+          bg-black text-white
+          px-6 pt-6 pb-10
+          rounded-b-3xl shadow-2xl
+          transform transition-transform duration-300
+          ${mobileOpen ? "translate-y-0" : "-translate-y-full"}
+        `}
+      >
+        <div className="flex items-center justify-between mb-10 max-w-7xl mx-auto">
           <Image
             src="/imagens/logo.png"
             alt="Logo"
-            width={200}
-            height={40}
+            width={140}
+            height={34}
+            className="object-contain"
             priority
           />
-        </Link>
 
-        {/* Navegação desktop */}
-        <nav className="hidden md:flex gap-6 text-sm font-medium text-white">
-          <a href="#sobre" className="hover:text-primary transition">
-            Sobre
-          </a>
-          <a href="#como-funciona" className="hover:text-primary transition">
-            Como funciona e Benefícios
-          </a>
-        </nav>
+          <button
+            type="button"
+            className="w-10 h-10 rounded-full border border-white/60 flex items-center justify-center text-2xl"
+            onClick={() => setMobileOpen(false)}
+            aria-label="Fechar menu"
+          >
+            ×
+          </button>
+        </div>
 
-        {/* CTA desktop */}
-        <a
-          href="mailto:contato@seudominio.com"
-          className="hidden md:inline-block bg-primary text-white px-4 py-2 rounded-md text-sm hover:opacity-90 transition"
-        >
-          Fale conosco
-        </a>
-
-        {/* Menu mobile - shadcn */}
-        <div className="md:hidden">
-          <DropdownMenu open={open} onOpenChange={setOpen}>
-            <DropdownMenuTrigger asChild>
-              <button
-                aria-label="Abrir menu"
-                className="flex flex-col gap-1"
-              >
-                <span className="w-6 h-0.5 bg-white"></span>
-                <span className="w-6 h-0.5 bg-white"></span>
-                <span className="w-6 h-0.5 bg-white"></span>
-              </button>
-            </DropdownMenuTrigger>
-
-            <DropdownMenuContent
-              side="bottom"
-              align="start"
-              sideOffset={16}
-              className="
-                w-screen left-0 rounded-none
-                border-x-0 border-b border-white/10
-                bg-primary text-white
-                data-[state=open]:animate-in
-                data-[state=open]:slide-in-from-top-3
-                data-[state=closed]:animate-out
-                data-[state=closed]:slide-out-to-top-3
-              "
+        <div className="max-w-7xl mx-auto px-2 space-y-8">
+          {/* Contato simples (igual vibe do exemplo) */}
+          <div className="text-center text-sm text-white/90">
+            <a
+              href="mailto:contato@seudominio.com"
+              className="hover:opacity-90 transition"
             >
-              <div className="flex flex-col items-center justify-center py-8 gap-6 text-base font-medium">
-                <DropdownMenuItem
-                  onSelect={(e) => {
-                    e.preventDefault();
-                    scrollToId("#sobre");
-                  }}
-                  className="cursor-pointer focus:bg-white/10"
-                >
-                  Sobre
-                </DropdownMenuItem>
+              contato@seudominio.com
+            </a>
+          </div>
 
-                <DropdownMenuItem
-                  onSelect={(e) => {
-                    e.preventDefault();
-                    scrollToId("#como-funciona");
-                  }}
-                  className="cursor-pointer focus:bg-white/10"
-                >
-                  Como funciona e Benefícios
-                </DropdownMenuItem>
+          {/* Links centralizados */}
+          <nav className="flex flex-col items-center gap-6 text-lg w-full font-semibold tracking-wide">
+            <button
+              onClick={() => scrollToId("#sobre")}
+              className=" hover:opacity-90 transition"
+            >
+              Sobre
+            </button>
 
-                <DropdownMenuItem
-                  onSelect={() => setOpen(false)}
-                  className="cursor-pointer focus:bg-white/10"
-                >
-                  <a
-                    href="mailto:contato@seudominio.com"
-                    className="font-semibold"
-                  >
-                    Fale conosco
-                  </a>
-                </DropdownMenuItem>
-              </div>
-            </DropdownMenuContent>
-          </DropdownMenu>
+            <button
+              onClick={() => scrollToId("#como-funciona")}
+              className=" hover:opacity-90 transition"
+            >
+              Como funciona e Benefícios
+            </button>
+
+            <button
+              onClick={() => scrollToId("#galeria")}
+              className=" hover:opacity-90 transition"
+            >
+              Galeria
+            </button>
+
+            <a
+              href="mailto:contato@seudominio.com"
+              onClick={() => setMobileOpen(false)}
+              className=" text-white/95 hover:opacity-90 transition"
+            >
+              Fale conosco
+            </a>
+          </nav>
         </div>
       </div>
-    </header>
+    </>
   );
 }

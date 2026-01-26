@@ -2,6 +2,7 @@ import Banner from "./components/Banner";
 import Cta from "./components/Cta";
 import Footer from "./components/Footer";
 import ComoFuncionaSection from "./components/FuncionaSection";
+import GallerySection from "./components/Galery";
 import Header from "./components/Header";
 import SobreSection from "./components/SobreSection";
 
@@ -11,8 +12,9 @@ export default function Home() {
   <Header />
   <Banner />
   <SobreSection/>
-  <ComoFuncionaSection/>
   <Cta/>
+  <ComoFuncionaSection/>
+  <GallerySection/>
   <Footer/>
   </>
   );

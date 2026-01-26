@@ -40,12 +40,7 @@ export default function Banner() {
             Solicitar demonstração
           </a>
 
-          <a
-            href="#projeto"
-            className="border border-white hover:bg-white hover:text-black font-semibold px-6 py-3 rounded-md transition"
-          >
-            Conhecer o projeto
-          </a>
+          
         </div>
       </div>
     </section>
