@@ -34,7 +34,7 @@ export default function Banner() {
         {/* CTAs */}
         <div className="mt-8 flex flex-wrap gap-4 md:items-start justify-center md:justify-start">
           <a
-            href="mailto:contato@seudominio.com"
+            href="mailto:contatorefcheck@gmail.com"
             className="bg-primary hover:bg-black text-white font-semibold px-6 py-3 rounded-md transition"
           >
             Solicitar demonstração

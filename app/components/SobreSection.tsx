@@ -139,7 +139,7 @@ export default function SobreSection() {
             {/* CTAs */}
             <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-4">
               <a
-                href="mailto:contato@seudominio.com"
+                href="mailto:contatorefcheck@gmail.com"
                 className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-semibold text-white hover:opacity-90 transition"
               >
                 Solicitar demonstração

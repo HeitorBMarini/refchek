@@ -52,7 +52,7 @@ export default function Header() {
 
             {/* CTA DESKTOP */}
             <a
-              href="mailto:contato@seudominio.com"
+              href="mailto:contatorefcheck@gmail.com"
               className="hidden md:inline-block bg-primary text-white px-4 py-2 rounded-md text-sm hover:opacity-90 transition"
             >
               Fale conosco
@@ -106,10 +106,10 @@ export default function Header() {
           {/* Contato simples (igual vibe do exemplo) */}
           <div className="text-center text-sm text-white/90">
             <a
-              href="mailto:contato@seudominio.com"
+              href="mailto:contatorefcheck@gmail.com"
               className="hover:opacity-90 transition"
             >
-              contato@seudominio.com
+              contato@refcheck.com
             </a>
           </div>
 
@@ -137,7 +137,7 @@ export default function Header() {
             </button>
 
             <a
-              href="mailto:contato@seudominio.com"
+              href="mailto:contatorefcheck@gmail.com"
               onClick={() => setMobileOpen(false)}
               className=" text-white/95 hover:opacity-90 transition"
             >

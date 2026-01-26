@@ -71,9 +71,10 @@ export default function Footer() {
 
                 <a
                   className="mt-3 text-sm text-white/70 hover:text-primary transition"
-                  href="mailto:contato@seudominio.com"
+                  href="mailto:contatorefcheck@gmail.com"
                 >
-                  contato@seudominio.com
+                    contatorefcheck@gmail.com
+
                 </a>
 
                 <p className="mt-2 text-sm text-white/60">
@@ -81,7 +82,7 @@ export default function Footer() {
                 </p>
 
                 <a
-                  href="mailto:contato@seudominio.com?subject=Contato%20-%20RefCheck"
+                  href="mailto:contatorefcheck@gmail.com"
                   className="
                     mt-5 inline-flex items-center justify-center
                     rounded-full bg-primary px-5 py-2.5

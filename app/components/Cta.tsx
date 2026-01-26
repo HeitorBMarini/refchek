@@ -42,14 +42,14 @@ export default function CTAStyled() {
 
               <p className="mt-4 max-w-2xl text-white/85 md:text-lg leading-relaxed">
                 Quer levar o treinamento de arbitragem para o próximo nível?
-                Entre em contato para conhecer o projeto, solicitar uma demonstração
-                e participar da evolução do RefCheck.
+                Entre em contato para conhecer o projeto, solicitar uma
+                demonstração e participar da evolução do RefCheck.
               </p>
 
               {/* CTAs */}
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
-                  href="mailto:contato@seudominio.com?subject=Solicitar%20demonstra%C3%A7%C3%A3o%20-%20RefCheck"
+                  href="mailto:contatorefcheck@gmail.com"
                   className="
                     group inline-flex items-center justify-between gap-5
                     rounded-full bg-black/80 hover:bg-black
