@@ -199,7 +199,7 @@ export default function ComoFuncionaSection() {
                     "
                   >
                     <div className="flex items-start gap-3">
-                      <div className="h-10 w-10 rounded-xl bg-primary/20 border border-white/10 flex items-center justify-center">
+                      <div className="md:h-10 md:w-10 h-12 w-18 rounded-xl bg-primary/20 border border-white/10 flex items-center justify-center">
                         <Icon size={20} className="text-white" />
                       </div>
 
