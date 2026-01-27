@@ -113,7 +113,7 @@ export default function ComoFuncionaSection() {
   return (
     <section
       id="como-funciona"
-      className="relative overflow-hidden py-20 scroll-mt-28"
+      className="relative overflow-hidden py-20 "
     >
       {/* glows */}
       <div className="pointer-events-none absolute -top-24 right-10 h-80 w-80 rounded-full bg-primary/20 blur-3xl" />

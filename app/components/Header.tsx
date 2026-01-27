@@ -8,17 +8,30 @@ import { Menu, X } from "lucide-react";
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
- const scrollToId = useCallback((id: string) => {
-  setMobileOpen(false);
+  const scrollToId = useCallback((id: string) => {
+    setMobileOpen(false);
 
-  setTimeout(() => {
-    const el = document.querySelector(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }, 150); 
-}, []);
+    // espera a animação do menu e o layout estabilizarem
+    const run = () => {
+      const el = document.querySelector(id) as HTMLElement | null;
+      if (!el) return;
 
+      // offset do header (ajuste se necessário)
+      const headerOffset = 96;
+      const y = el.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+      window.scrollTo({ top: y, behavior: "smooth" });
+    };
+
+    // 1) espera a animação do menu
+    setTimeout(() => {
+      // 2) espera o próximo frame (layout pronto)
+      requestAnimationFrame(() => {
+        // 3) e mais um frame (mobile safari às vezes precisa)
+        requestAnimationFrame(run);
+      });
+    }, 320); // combine com duration-300 do seu menu mobile
+  }, []);
 
   return (
     <>
@@ -42,10 +55,16 @@ export default function Header() {
               <a href="#sobre" className="hover:text-primary transition">
                 Sobre
               </a>
-              <a href="#como-funciona" className="hover:text-primary transition">
+              <a
+                href="#como-funciona"
+                className="hover:text-primary transition"
+              >
                 Como funciona e Benefícios
               </a>
-              <a href="#galeria-section" className="hover:text-primary transition">
+              <a
+                href="#galeria-section"
+                className="hover:text-primary transition"
+              >
                 Galeria
               </a>
             </nav>
