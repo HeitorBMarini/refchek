@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "RefCheck | Treinamento em Arbitragem VR",
+  title: "RefCheck | Treinamento de árbitros com VR",
   description:
     "Treinamento em Realidade Virtual para árbitros tomarem decisões corretas sob pressão real de jogo.",
   icons: {
