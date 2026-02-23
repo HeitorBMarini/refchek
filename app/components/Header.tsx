@@ -69,13 +69,21 @@ export default function Header() {
               </a>
             </nav>
 
-            {/* CTA DESKTOP */}
-            <a
-              href="mailto:contatorefcheck@gmail.com"
-              className="hidden md:inline-block bg-primary text-white px-4 py-2 rounded-md text-sm hover:opacity-90 transition"
-            >
-              Fale conosco
-            </a>
+            <div className="flex gap-6">
+              {/* CTA DESKTOP */}
+              <a
+                href="mailto:contatorefcheck@gmail.com"
+                className="hidden md:inline-block bg-primary text-white px-4 py-2 rounded-md text-sm hover:opacity-90 transition"
+              >
+                Fale conosco
+              </a>
+              <a
+                href=""
+                className="hidden md:inline-block bg-primary text-white px-4 py-2 rounded-md text-sm hover:opacity-90 transition"
+              >
+                Acesso ao sistema
+              </a>
+            </div>
 
             {/* BOTÃO MOBILE */}
             <button
@@ -161,6 +169,13 @@ export default function Header() {
               className=" text-white/95 hover:opacity-90 transition"
             >
               Fale conosco
+            </a>
+            <a
+              href=""
+              onClick={() => setMobileOpen(false)}
+              className=" text-white/95 hover:opacity-90 transition"
+            >
+              Acesso ao sistema
             </a>
           </nav>
         </div>
